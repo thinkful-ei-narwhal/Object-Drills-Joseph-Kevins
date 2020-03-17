@@ -1,11 +1,12 @@
-const loaf = {
-  flour: 300,
-  water: 210,
-  hydration() {
-    return (this.water/this.flour) * 100;
-  },
+'use strict';
+const obj = {
+  foo: 'foo',
+  bar: 'bar',
+  fum: 'fum',
+  quux: 'quux',
+  spam: 'spam',
 }
 
-console.log(loaf.flour);
-console.log(loaf.water);
-console.log(loaf.hydration());
+for (const prop in obj) {
+  console.log(`${prop} : ${obj[prop]}`);
+}
