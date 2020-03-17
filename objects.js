@@ -1,20 +1,28 @@
-const person1 = {
-  name: 'John',
-  jobTitle: 'Software Developer',
-};
-const person2 = {
-  name: 'Mary',
-  jobTitle: 'Web Developer',
-};
-const person3 = {
-  name: 'Harold',
-  jobTitle: 'Front-End Developer',
-};
-const person4 = {
-  name: 'Susy',
-  jobTitle: 'Back-End Developer',
+'use strict';
+const cipher = {
+  a : 2,
+  b : 3,
+  c : 4,
+  d : 5,
 };
 
-const peopleArray = [person1, person2, person3, person4];
+function decode(arrOfWords) {
+  let decodedWord = '';
+  for (let i = 0; i < arrOfWords.length; i++) {
+    let cipherKey = arrOfWords[i][0];
+    let uncoded = cipher[cipherKey];
+    if (uncoded) {
+      decodedWord += arrOfWords[i][uncoded - 1];
+    } else {
+      decodedWord += ' ';
+    }
+  }
+  return decodedWord;
+}
 
-peopleArray.forEach(obj => console.log(`${obj.name}: ${obj.jobTitle}`));
+function decodeWords(codedString) {
+  let splitString = codedString.split(' ');
+  return decode(splitString);
+}
+
+console.log(decodeWords('craft block argon meter bells brown croon droop'));
