@@ -1,12 +1,5 @@
-'use strict';
-const obj = {
-  foo: 'foo',
-  bar: 'bar',
-  fum: 'fum',
-  quux: 'quux',
-  spam: 'spam',
+const hobbit = {
+  meals: ['breakfast', 'second breakfast', 'elevenses', 'lunch', 'afternoon tea', 'dinner', 'supper'],
 }
 
-for (const prop in obj) {
-  console.log(`${prop} : ${obj[prop]}`);
-}
+console.log(hobbit.meals[3]);
