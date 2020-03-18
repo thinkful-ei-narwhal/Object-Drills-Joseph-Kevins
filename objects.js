@@ -1,38 +1,25 @@
-const person1 = {
-  name: 'John',
-  jobTitle: 'Software Developer',
-};
-const person2 = {
-  name: 'Mary',
-  jobTitle: 'Web Developer',
-};
-const person3 = {
-  name: 'Harold',
-  jobTitle: 'Front-End Developer',
-};
-const person4 = {
-  name: 'Susy',
-  jobTitle: 'Back-End Developer',
-};
-
-const peopleArray = [person1, person2, person3, person4];
-
-peopleArray.forEach(obj => console.log(`${obj.name}: ${obj.jobTitle}`));
-
-const cipher = {
-  a: 2,
-  b: 3,
-  c: 4,
-  d: 5,
-  other(char) {
-    if (char !== 'a' || char !== 'b' || char !== 'c' || char !== 'd') {
-      return (" ");
+function createCharacter(name, nickname, race, origin, attack, defense) {
+  return {
+    name,
+    nickname,
+    race,
+    origin,
+    attack,
+    defense,
+    describe() {
+      return `${this.name} is a ${this.race} from ${this.origin}.`
+    },
+    evaluateFight(char) {
+      return `Your opponent takes ${this.attack > char.defense ? this.attack - char.defense : 0} damage and you receive ${char.attack > this.defense ? char.attack - this.defense : 0} damage`;
     }
   }
 }
 
-function decode(arrayOfWords) {
+const gandalf = createCharacter('Gandalf the White', 'gandalf', 'Wizard', 'Middle Earth', 10, 6);
+const bilbo = createCharacter('Bilbo Baggins', 'bilbo', 'Hobbit', 'The Shire', 2, 1);
+const frodo = createCharacter('Frodo Baggins', 'frodo', 'Hobbit', 'The Shire', 3, 2);
+const aragorn = createCharacter('Aragorn son of Arathorn', 'aragorn', 'Man', 'Dunnedain', 6, 8);
+const legolas = createCharacter('Legolas', 'legolas', 'Elf', 'Woodland Realm', 8, 5);
 
-}
-
-console.log(Boolean(" "));
+console.log(frodo.describe());
+console.log(gandalf.evaluateFight(legolas));
